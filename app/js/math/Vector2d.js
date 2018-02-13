@@ -1,4 +1,5 @@
 import InvalidArgumentException from '../exceptions/InvalidArgumentException';
+
 /**
  * Class Vector2d
  *
