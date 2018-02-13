@@ -10,6 +10,12 @@ export default class Vector2d
 {
     constructor(x, y)
     {
+        if (typeof (x) !== 'number') {
+            throw new InvalidArgumentException(x + " is not a number!");
+        }
+        if (typeof (y) !== 'number') {
+            throw new InvalidArgumentException(y + " is not a number!");
+        }
         this.x = x;
         this.y = y;
     }
