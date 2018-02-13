@@ -7,7 +7,8 @@
     "compile": "babel --presets env -d lib/ app/",
     "dev": "webpack-dev-server",
     "build": "NODE_ENV=PRODUCTION webpack -p",
-    "tests": "jest"
+    "tests": "jest",
+    "debug": "babel-node debug app/js/main.js"
   },
   "author": "Daniel Weise",
   "license": "ISC",
@@ -33,6 +34,7 @@
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.26.0"
   }
 }
