@@ -120,6 +120,18 @@ describe("Testing class Vector2d", () => {
 
     // SAD PATH
     describe("Sad Path Testing", () => {
+        test('constructor() with wrong first param', () => {
+            expect(() => {
+                let c = new Vector2d(wrong, y);
+            }).toThrow(new InvalidArgumentException(wrong + " is not a number!"));
+        });
+
+        test('constructor() with wrong second param', () => {
+            expect(() => {
+                let c = new Vector2d(x, wrong);
+            }).toThrow(new InvalidArgumentException(wrong + " is not a number!"));
+        });
+
         test('setX() with wrong param', () => {
             expect(() => {
                 vec1.setX(wrong);
