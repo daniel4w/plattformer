@@ -85,59 +85,59 @@ describe('Testing class Particle...', () => {
     });
 
     // SAD PATH
-    describe('Sad Path Testing', () => {
-        test('constructor() with wrong first param', () => {
-            expect(() => {
-                let p = new Particle(test_number1, position1, test_number1);
-            }).toThrowError(new InvalidArgumentException(test_number1 + ' is not a string!'));
-        });
+    // describe('Sad Path Testing', () => {
+    //     test('constructor() with wrong first param', () => {
+    //         expect(() => {
+    //             let p = new Particle(test_number1, position1, test_number1);
+    //         }).toThrowError(new InvalidArgumentException(test_number1 + ' is not a string!'));
+    //     });
 
-        test('constructor() with wrong second param', () => {
-            expect(() => {
-                let p = new Particle(name1, test_number1, test_number1);
-            }).toThrowError(new InvalidArgumentException(test_number1 + ' is not a Vector2d!'));
-        });
+    //     test('constructor() with wrong second param', () => {
+    //         expect(() => {
+    //             let p = new Particle(name1, test_number1, test_number1);
+    //         }).toThrowError(new InvalidArgumentException(test_number1 + ' is not a Vector2d!'));
+    //     });
 
-        test('constructor() with wrong third param', () => {
-            expect(() => {
-                let p = new Particle(name1, position1, position2);
-            }).toThrowError(new InvalidArgumentException(position2 + ' is not a number!'));
-        });
+    //     test('constructor() with wrong third param', () => {
+    //         expect(() => {
+    //             let p = new Particle(name1, position1, position2);
+    //         }).toThrowError(new InvalidArgumentException(position2 + ' is not a number!'));
+    //     });
 
-        test('setPosition() with wrong first param', () => {
-            expect(() => {
-                particle1.setPosition(test_number1);
-            }).toThrowError(new InvalidArgumentException(test_number1 + ' is not a Vector2d!'));
-        });
+    //     test('setPosition() with wrong first param', () => {
+    //         expect(() => {
+    //             particle1.setPosition(test_number1);
+    //         }).toThrowError(new InvalidArgumentException(test_number1 + ' is not a Vector2d!'));
+    //     });
 
-        test('setRadius() with wrong first param', () => {
-            expect(() => {
-                particle1.setRadius(position1);
-            }).toThrowError(new InvalidArgumentException(position1 + ' is not a number!'));
-        });
+    //     test('setRadius() with wrong first param', () => {
+    //         expect(() => {
+    //             particle1.setRadius(position1);
+    //         }).toThrowError(new InvalidArgumentException(position1 + ' is not a number!'));
+    //     });
 
-        test('setVelocity() with wrong first param', () => {
-            expect(() => {
-                particle1.setVelocity(test_number1);
-            }).toThrowError(new InvalidArgumentException(test_number1 + ' is not a Vector2d!'));
-        });
+    //     test('setVelocity() with wrong first param', () => {
+    //         expect(() => {
+    //             particle1.setVelocity(test_number1);
+    //         }).toThrowError(new InvalidArgumentException(test_number1 + ' is not a Vector2d!'));
+    //     });
 
-        test('setFillColor() with wrong first param', () => {
-            expect(() => {
-                particle1.setFillColor(test_number1);
-            }).toThrowError(new InvalidArgumentException(test_number1 + ' is not a string!'));
-        });
+    //     test('setFillColor() with wrong first param', () => {
+    //         expect(() => {
+    //             particle1.setFillColor(test_number1);
+    //         }).toThrowError(new InvalidArgumentException(test_number1 + ' is not a string!'));
+    //     });
 
-        test('setBorderWidth() with wrong first param', () => {
-            expect(() => {
-                particle1.setBorderWidth(position1);
-            }).toThrowError(new InvalidArgumentException(position1 + ' is not a number!'));
-        });
+    //     test('setBorderWidth() with wrong first param', () => {
+    //         expect(() => {
+    //             particle1.setBorderWidth(position1);
+    //         }).toThrowError(new InvalidArgumentException(position1 + ' is not a number!'));
+    //     });
 
-        test('setBorderColor() with wrong first param', () => {
-            expect(() => {
-                particle1.setBorderColor(test_number1);
-            }).toThrowError(new InvalidArgumentException(test_number1 + ' is not a string!'));
-        });
-    });  
+    //     test('setBorderColor() with wrong first param', () => {
+    //         expect(() => {
+    //             particle1.setBorderColor(test_number1);
+    //         }).toThrowError(new InvalidArgumentException(test_number1 + ' is not a string!'));
+    //     });
+    // });  
 });

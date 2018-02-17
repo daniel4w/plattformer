@@ -2,6 +2,8 @@ import Vector2d from '../math/Vector2d';
 import InvalidArgumentException from '../exceptions/InvalidArgumentException';
 import Renderable from './Renderable';
 
+const assert = require('assert');
+
 /**
  * Class Particle.
  * Represent one particle.
@@ -20,9 +22,7 @@ export default class Particle extends Renderable
      */
     constructor(name, position, radius)
     {
-        if (typeof (radius) !== 'number') {
-            throw new InvalidArgumentException(radius + ' is not a number!');
-        }
+        assert(typeof (radius) == 'number');
         super(name, position);
         this.radius = radius;
     }
@@ -45,9 +45,7 @@ export default class Particle extends Renderable
      */
     setRadius(radius)
     {
-        if (typeof (radius) !== 'number') {
-            throw new InvalidArgumentException(radius + ' is not a number!');
-        }
+        assert(typeof (radius) == 'number')
         this.radius = radius;
     }
 
@@ -69,9 +67,7 @@ export default class Particle extends Renderable
      */
     setX(x)
     {
-        if (typeof (x) !== 'number') {
-            throw new InvalidArgumentException(x + ' is not a number!');
-        }
+        assert(typeof (x) == 'number');
         this.position.setX(x);
     }
 
@@ -91,9 +87,7 @@ export default class Particle extends Renderable
      * @returns {void}
      */
     setY(y) {
-        if (typeof (y) !== 'number') {
-            throw new InvalidArgumentException(y + ' is not a number!');
-        }
+        assert(typeof (y) == 'number');
         this.position.setY(y);
     }
 
@@ -115,10 +109,7 @@ export default class Particle extends Renderable
      */
     setVelocity(vector)
     {
-        // TODO: encapsulate this into an utility class or smth. else.
-        if (!(vector instanceof Vector2d)) {
-            throw new InvalidArgumentException(vector + ' is not a Vector2d!');
-        }
+        assert(vector instanceof Vector2d);
         this.velocity = vector;
     }
 
@@ -140,9 +131,7 @@ export default class Particle extends Renderable
      */
     setFillColor(color)
     {
-        if (typeof (color) !== 'string') {
-            throw new InvalidArgumentException(color + ' is not a string!');
-        }
+        assert(typeof (color) == 'string');
         this.fillColor = color;
     }
 
@@ -164,9 +153,7 @@ export default class Particle extends Renderable
      */
     setBorderWidth(borderWidth)
     {
-        if (typeof (borderWidth) !== 'number') {
-            throw new InvalidArgumentException(borderWidth + ' is not a number!');
-        }
+        assert(typeof (borderWidth) == 'number');
         this.borderWidth = borderWidth;
     }
 
@@ -186,9 +173,7 @@ export default class Particle extends Renderable
      * @return {void}
      */
     setBorderColor(color) {
-        if (typeof (color) !== 'string') {
-            throw new InvalidArgumentException(color + ' is not a string!');
-        }
+        assert(typeof (color) == 'string');
         this.borderColor = color;
     }
 }

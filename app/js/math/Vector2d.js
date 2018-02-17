@@ -1,5 +1,7 @@
 import InvalidArgumentException from '../exceptions/InvalidArgumentException';
 
+const assert = require('assert');
+
 /**
  * Class Vector2d
  *

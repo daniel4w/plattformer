@@ -26,3 +26,5 @@ function update()
 }
 
 update();
+
+// TODO: change param checking with if statements to assert
