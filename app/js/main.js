@@ -26,5 +26,3 @@ function update()
 }
 
 update();
-
-// TODO: write test for Particle.js
