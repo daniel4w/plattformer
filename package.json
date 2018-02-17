@@ -6,8 +6,8 @@
   "scripts": {
     "compile": "babel --presets env -d lib/ app/",
     "dev": "webpack-dev-server",
-    "build": "NODE_ENV=PRODUCTION webpack -p",
-    "tests": "jest",
+    "build": "NODE_ENV=PRODUCTION webpack",
+    "tests": "jest --verbose",
     "debug": "babel-node debug app/js/main.js"
   },
   "author": "Daniel Weise",

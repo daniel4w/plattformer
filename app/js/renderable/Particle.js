@@ -1,96 +1,30 @@
 import Vector2d from '../math/Vector2d';
+import InvalidArgumentException from '../exceptions/InvalidArgumentException';
+import Renderable from './Renderable';
+
 /**
  * Class Particle.
  * Represent one particle.
  *
  * @author Daniel Weise <daniel4w@gmx.de>
  */
-export default class Particle
+export default class Particle extends Renderable
 {
     /**
      * Constructor of the class Particle.
+     * Initialize the position and the radius of the particle in a 2d context.
      *
+     * @param {string} name
      * @param {Vector2d} position
      * @param {number} radius
      */
-    constructor(position, radius)
+    constructor(name, position, radius)
     {
-        this.position = position;
+        if (typeof (radius) !== 'number') {
+            throw new InvalidArgumentException(radius + ' is not a number!');
+        }
+        super(name, position);
         this.radius = radius;
-    }
-
-    /**
-     * Update this. Runs before every draw() call.
-     *
-     * @returns {void}
-     */
-    update(context)
-    {
-        if (typeof(this.velocity) != 'undefined') {
-            this.position.addTo(this.velocity);
-        }
-
-        if (this.fillColor != 'undefined') {
-            context.fillStyle = this.fillColor;
-            context.fill();
-        }
-
-        if (this.borderColor != 'undefined') {
-            context.strokeStyle = this.borderColor;
-        }
-
-        if (this.borderWidth != 'undefined') {
-            context.lineWidth = this.borderWidth;
-        }
-    }
-
-    /**
-     * Draw the particle on the given context.
-     *
-     * @param {object} context 
-     */
-    draw(context)
-    {
-        if (typeof (context) !== 'object') {
-            throw new InvalidArgumentException(context + " is not an object!");
-        }
-
-        this.update(context);
-
-        context.beginPath();
-        context.arc(
-            this.position.getX(),
-            this.position.getY(),
-            this.radius,
-            0,
-            2 * Math.PI
-        );
-        
-        context.stroke();
-    }
-
-    /**
-     * Get the actual position of the particle.
-     *
-     * @returns {Vector2d}
-     */
-    getPosition()
-    {
-        return this.position;
-    }
-
-    /**
-     * Set the postion of a particle.
-     *
-     * @param {Vector2d} vector
-     * @returns {void}
-     */
-    setPostion(vector)
-    {
-        if (!(vector instanceof Vector2d)) {
-            throw new InvalidArgumentException(vector + " is not a Vector2d!");
-        }
-        this.postion = position;
     }
 
     /**
@@ -112,9 +46,55 @@ export default class Particle
     setRadius(radius)
     {
         if (typeof (radius) !== 'number') {
-            throw new InvalidArgumentException(radius + " is not a number!");
+            throw new InvalidArgumentException(radius + ' is not a number!');
         }
         this.radius = radius;
+    }
+
+    /**
+     * Get the x postion of a Particle.
+     *
+     * @returns {number}
+     */
+    getX()
+    {
+        return this.position.getX();
+    }
+
+    /**
+     * Set the x position of a Particle.
+     *
+     * @param {number} x
+     * @returns {void}
+     */
+    setX(x)
+    {
+        if (typeof (x) !== 'number') {
+            throw new InvalidArgumentException(x + ' is not a number!');
+        }
+        this.position.setX(x);
+    }
+
+    /**
+     * Get the y postion of a Particle.
+     *
+     * @returns {number}
+     */
+    getY() {
+        return this.position.getY();
+    }
+
+    /**
+     * Set the y position of a Particle.
+     *
+     * @param {number} y
+     * @returns {void}
+     */
+    setY(y) {
+        if (typeof (y) !== 'number') {
+            throw new InvalidArgumentException(y + ' is not a number!');
+        }
+        this.position.setY(y);
     }
 
     /**
@@ -137,7 +117,7 @@ export default class Particle
     {
         // TODO: encapsulate this into an utility class or smth. else.
         if (!(vector instanceof Vector2d)) {
-            throw new InvalidArgumentException(vector + " is not a Vector2d!");
+            throw new InvalidArgumentException(vector + ' is not a Vector2d!');
         }
         this.velocity = vector;
     }
@@ -161,7 +141,7 @@ export default class Particle
     setFillColor(color)
     {
         if (typeof (color) !== 'string') {
-            throw new InvalidArgumentException(color + " is not a string!");
+            throw new InvalidArgumentException(color + ' is not a string!');
         }
         this.fillColor = color;
     }
@@ -185,7 +165,7 @@ export default class Particle
     setBorderWidth(borderWidth)
     {
         if (typeof (borderWidth) !== 'number') {
-            throw new InvalidArgumentException(borderWidth + " is not a number!");
+            throw new InvalidArgumentException(borderWidth + ' is not a number!');
         }
         this.borderWidth = borderWidth;
     }
@@ -195,7 +175,7 @@ export default class Particle
      *
      * @returns {string}
      */
-    getFillColor() {
+    getBorderColor() {
         return this.borderColor;
     }
 
@@ -207,7 +187,7 @@ export default class Particle
      */
     setBorderColor(color) {
         if (typeof (color) !== 'string') {
-            throw new InvalidArgumentException(color + " is not a string!");
+            throw new InvalidArgumentException(color + ' is not a string!');
         }
         this.borderColor = color;
     }

@@ -44,13 +44,16 @@ const plugins =
 ]
 
 if (NODE_ENV === 'production') {
-    plugins.push(new ExtractTextPlugin
+    plugins.push
     (
-        {
-            filename: 'css/style.css'
-        }
-    ),
-    new BabelWebpackPlugin());
+        new ExtractTextPlugin
+        (
+            {
+                filename: 'css/style.css'
+            }
+        ),
+        new BabelWebpackPlugin()
+    );
 }
 
 const devStyleLoaders =
@@ -145,5 +148,6 @@ module.exports =
             },
         ]
     },
+    devtool: NODE_ENV === 'production' ? "" : "source-map",
     plugins
 }

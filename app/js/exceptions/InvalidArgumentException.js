@@ -1,4 +1,6 @@
 /**
+ * Class InvalidArgumentException.
+ * Throw for wrong arguments.
  * 
  * @author Daniel Weise <daniel4w@gmx.de>
  */

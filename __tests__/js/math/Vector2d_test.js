@@ -8,17 +8,17 @@ let vec1,
     a = 20,
     b = 30,
     test_int = 11,
-    wrong = "wrong";
+    wrong = 'wrong';
 
 beforeEach(() => {
     vec1 = new Vector2d(x, y);
     vec2 = new Vector2d(a, b);
 });
 
-describe("Testing class Vector2d", () => {
+describe('Testing class Vector2d', () => {
 
     // HAPPY PATH
-    describe("Happy Path Testing", () => {
+    describe('Happy Path Testing', () => {
         test('constructor()', () => {
             expect.objectContaining(vec1);
         });
@@ -119,113 +119,113 @@ describe("Testing class Vector2d", () => {
     });
 
     // SAD PATH
-    describe("Sad Path Testing", () => {
+    describe('Sad Path Testing', () => {
         test('constructor() with wrong first param', () => {
             expect(() => {
                 let c = new Vector2d(wrong, y);
-            }).toThrow(new InvalidArgumentException(wrong + " is not a number!"));
+            }).toThrow(new InvalidArgumentException(wrong + ' is not a number!'));
         });
 
         test('constructor() with wrong second param', () => {
             expect(() => {
                 let c = new Vector2d(x, wrong);
-            }).toThrow(new InvalidArgumentException(wrong + " is not a number!"));
+            }).toThrow(new InvalidArgumentException(wrong + ' is not a number!'));
         });
 
         test('setX() with wrong param', () => {
             expect(() => {
                 vec1.setX(wrong);
-            }).toThrow(new InvalidArgumentException(wrong + " is not a number!"));
+            }).toThrow(new InvalidArgumentException(wrong + ' is not a number!'));
         });
 
         test('setY() with wrong param', () => {
             expect(() => {
                 vec1.setY(wrong);
-            }).toThrow(new InvalidArgumentException(wrong + " is not a number!"));
+            }).toThrow(new InvalidArgumentException(wrong + ' is not a number!'));
         });
 
         test('setLength() with wrong param', () => {
             expect(() => {
                 vec1.setLength(wrong);
-            }).toThrow(new InvalidArgumentException(wrong + " is not a number!"));
+            }).toThrow(new InvalidArgumentException(wrong + ' is not a number!'));
         });
 
         test('setAngle() with wrong param', () => {
             expect(() => {
                 vec1.setAngle(wrong);
-            }).toThrow(new InvalidArgumentException(wrong + " is not a number!"));
+            }).toThrow(new InvalidArgumentException(wrong + ' is not a number!'));
         });
 
         test('addTo() with wrong param', () => {
             expect(() => {
                 vec1.addTo(wrong);
-            }).toThrow(new InvalidArgumentException(wrong + " is not a Vector2d!"));
+            }).toThrow(new InvalidArgumentException(wrong + ' is not a Vector2d!'));
         });
 
         test('substractFrom() with wrong param', () => {
             expect(() => {
                 vec1.subtractFrom(wrong);
-            }).toThrow(new InvalidArgumentException(wrong + " is not a Vector2d!"));
+            }).toThrow(new InvalidArgumentException(wrong + ' is not a Vector2d!'));
         });
 
         test('multiplyBy() with wrong param with wrong param', () => {
             expect(() => {
                 vec1.multiplyBy(wrong);
-            }).toThrow(new InvalidArgumentException(wrong + " is not a number!"));
+            }).toThrow(new InvalidArgumentException(wrong + ' is not a number!'));
         });
 
         test('divideBy() with wrong param', () => {
             expect(() => {
                 vec1.divideBy(wrong);
-            }).toThrow(new InvalidArgumentException(wrong + " is not a number!"));
+            }).toThrow(new InvalidArgumentException(wrong + ' is not a number!'));
         });
 
         test('add() with wrong first param', () => {
             expect(() => {
                 Vector2d.add(wrong, vec1);
-            }).toThrow(new InvalidArgumentException(wrong + " is not a Vector2d!"));
+            }).toThrow(new InvalidArgumentException(wrong + ' is not a Vector2d!'));
         });
 
         test('add() with wrong second param', () => {
             expect(() => {
                 Vector2d.add(vec1, wrong);
-            }).toThrow(new InvalidArgumentException(wrong + " is not a Vector2d!"));
+            }).toThrow(new InvalidArgumentException(wrong + ' is not a Vector2d!'));
         });
 
         test('substract() with wrong first param', () => {
             expect(() => {
                 Vector2d.add(wrong, vec1);
-            }).toThrow(new InvalidArgumentException(wrong + " is not a Vector2d!"));
+            }).toThrow(new InvalidArgumentException(wrong + ' is not a Vector2d!'));
         });
 
         test('substract() with wrong second param', () => {
             expect(() => {
                 Vector2d.add(vec1, wrong);
-            }).toThrow(new InvalidArgumentException(wrong + " is not a Vector2d!"));
+            }).toThrow(new InvalidArgumentException(wrong + ' is not a Vector2d!'));
         });
 
         test('multiply() with wrong first param', () => {
             expect(() => {
                 Vector2d.multiply(wrong, vec1);
-            }).toThrow(new InvalidArgumentException(wrong + " is not a Vector2d!"));
+            }).toThrow(new InvalidArgumentException(wrong + ' is not a Vector2d!'));
         });
 
         test('multiply() with wrong second param', () => {
             expect(() => {
                 Vector2d.multiply(vec1, wrong);
-            }).toThrow(new InvalidArgumentException(wrong + " is not a number!"));
+            }).toThrow(new InvalidArgumentException(wrong + ' is not a number!'));
         });
 
-        test('divide()  with wrong first param', () => {
+        test('divide() with wrong first param', () => {
             expect(() => {
                 Vector2d.divide(wrong, vec1);
-            }).toThrow(new InvalidArgumentException(wrong + " is not a Vector2d!"));
+            }).toThrow(new InvalidArgumentException(wrong + ' is not a Vector2d!'));
         });
 
-        test('divide()  with wrong second param', () => {
+        test('divide() with wrong second param', () => {
             expect(() => {
                 Vector2d.divide(vec1, wrong);
-            }).toThrow(new InvalidArgumentException(wrong + " is not a number!"));
+            }).toThrow(new InvalidArgumentException(wrong + ' is not a number!'));
         });
     });
 });

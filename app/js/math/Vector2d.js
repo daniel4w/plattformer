@@ -9,6 +9,13 @@ import InvalidArgumentException from '../exceptions/InvalidArgumentException';
  */
 export default class Vector2d
 {
+    /**
+     * Constructor of the class Vector2d.
+     * Initialize the x and y position of the Vector2d.
+     *
+     * @param {number} x
+     * @param {number} y
+     */
     constructor(x, y)
     {
         if (typeof (x) !== 'number') {
@@ -22,7 +29,7 @@ export default class Vector2d
     }
 
     /**
-     * Set x.
+     * Set the x position of the Vector2d.
      *
      * @param {number} value
      * @throws {InvalidArgumentException}
@@ -37,7 +44,7 @@ export default class Vector2d
     }
 
     /**
-     * Get x.
+     * Get the x position of the Vector2d.
      *
      * @returns {number}
      */
@@ -47,7 +54,7 @@ export default class Vector2d
     }
 
     /**
-     * Set y.
+     * Set the y position of the Vector2d.
      *
      * @param {number} value
      * @throws {InvalidArgumentException}
@@ -62,7 +69,7 @@ export default class Vector2d
     }
 
     /**
-     * Get y.
+     * Get the y position of the Vector2d.
      *
      * @returns {number}
      */
