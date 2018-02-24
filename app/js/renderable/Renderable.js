@@ -1,5 +1,5 @@
 import Vector2d from '../math/Vector2d';
-import InvalidArgumentException from '../exceptions/InvalidArgumentException';
+const assert = require('assert');
 
 /**
  * Class Renderable.
@@ -9,16 +9,22 @@ import InvalidArgumentException from '../exceptions/InvalidArgumentException';
  */
 export default class Renderable
 {
-    constructor(name, position)
+    /**
+     * Constructor of the class Renderable.
+     * Initialize the name and the x and y Position.
+     *
+     * @param {string}  name     Name for the Renderable.
+     * @param {number}  x        X postion of the Renderable.
+     * @param {number}  y        Y postion of thr Renderable.
+     */
+    constructor(name, x, y)
     {
-        if (typeof(name) != 'string') {
-            throw new InvalidArgumentException(name + ' is not a string!');
-        }
-        if (!(position instanceof Vector2d)) {
-            throw new InvalidArgumentException(position + ' is not a Vector2d!');
-        }
+        assert(typeof(name) === 'string');
+        assert(typeof(x) === 'number');
+        assert(typeof(y) === 'number');
+
         this.name = name;
-        this.position = position;
+        this.position = new Vector2d(x, y);
     }
 
     /**
@@ -32,24 +38,46 @@ export default class Renderable
     }
 
     /**
-     * Get the actual position of the particle.
+     * Get the actual x postion of thr Renderable.
      *
-     * @returns {Vector2d}
+     * @returns {number}
      */
-    getPosition() {
-        return this.position;
+    getX()
+    {
+        return this.position.getX();
     }
 
     /**
-     * Set the postion of a particle.
+     * Set the x postion of a Renderable.
      *
-     * @param {Vector2d} vector
+     * @param {number}  x
      * @returns {void}
      */
-    setPosition(vector) {
-        if (!(vector instanceof Vector2d)) {
-            throw new InvalidArgumentException(vector + ' is not a Vector2d!');
-        }
-        this.position = vector;
+    setX(x)
+    {
+        assert(typeof(x) === 'number');
+        this.position.setX(x);
+    }
+
+    /**
+     * Get the actual y postion of thr Renderable.
+     *
+     * @returns {number}
+     */
+    getY()
+    {
+        return this.position.getY();
+    }
+
+    /**
+     * Set the y postion of a Renderable.
+     *
+     * @param {number}  y
+     * @returns {void}
+     */
+    setY(y)
+    {
+        assert(typeof(y) === 'number');
+        this.position.setY(y);
     }
 }

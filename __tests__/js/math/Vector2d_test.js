@@ -1,5 +1,5 @@
 import Vector2d from '../../../app/js/math/Vector2d';
-import InvalidArgumentException from '../../../app/js/exceptions/InvalidArgumentException';
+const AssertionError = require('assert').AssertionError;
 
 let vec1,
     vec2,
@@ -123,109 +123,109 @@ describe('Testing class Vector2d', () => {
         test('constructor() with wrong first param', () => {
             expect(() => {
                 let c = new Vector2d(wrong, y);
-            }).toThrow(new InvalidArgumentException(wrong + ' is not a number!'));
+            }).toThrow(AssertionError);
         });
 
         test('constructor() with wrong second param', () => {
             expect(() => {
                 let c = new Vector2d(x, wrong);
-            }).toThrow(new InvalidArgumentException(wrong + ' is not a number!'));
+            }).toThrow(AssertionError);
         });
 
         test('setX() with wrong param', () => {
             expect(() => {
                 vec1.setX(wrong);
-            }).toThrow(new InvalidArgumentException(wrong + ' is not a number!'));
+            }).toThrow(AssertionError);
         });
 
         test('setY() with wrong param', () => {
             expect(() => {
                 vec1.setY(wrong);
-            }).toThrow(new InvalidArgumentException(wrong + ' is not a number!'));
+            }).toThrow(AssertionError);
         });
 
         test('setLength() with wrong param', () => {
             expect(() => {
                 vec1.setLength(wrong);
-            }).toThrow(new InvalidArgumentException(wrong + ' is not a number!'));
+            }).toThrow(AssertionError);
         });
 
         test('setAngle() with wrong param', () => {
             expect(() => {
                 vec1.setAngle(wrong);
-            }).toThrow(new InvalidArgumentException(wrong + ' is not a number!'));
+            }).toThrow(AssertionError);
         });
 
         test('addTo() with wrong param', () => {
             expect(() => {
                 vec1.addTo(wrong);
-            }).toThrow(new InvalidArgumentException(wrong + ' is not a Vector2d!'));
+            }).toThrow(AssertionError);
         });
 
         test('substractFrom() with wrong param', () => {
             expect(() => {
                 vec1.subtractFrom(wrong);
-            }).toThrow(new InvalidArgumentException(wrong + ' is not a Vector2d!'));
+            }).toThrow(AssertionError);
         });
 
         test('multiplyBy() with wrong param with wrong param', () => {
             expect(() => {
                 vec1.multiplyBy(wrong);
-            }).toThrow(new InvalidArgumentException(wrong + ' is not a number!'));
+            }).toThrow(AssertionError);
         });
 
         test('divideBy() with wrong param', () => {
             expect(() => {
                 vec1.divideBy(wrong);
-            }).toThrow(new InvalidArgumentException(wrong + ' is not a number!'));
+            }).toThrow(AssertionError);
         });
 
         test('add() with wrong first param', () => {
             expect(() => {
                 Vector2d.add(wrong, vec1);
-            }).toThrow(new InvalidArgumentException(wrong + ' is not a Vector2d!'));
+            }).toThrow(AssertionError);
         });
 
         test('add() with wrong second param', () => {
             expect(() => {
                 Vector2d.add(vec1, wrong);
-            }).toThrow(new InvalidArgumentException(wrong + ' is not a Vector2d!'));
+            }).toThrow(AssertionError);
         });
 
         test('substract() with wrong first param', () => {
             expect(() => {
                 Vector2d.add(wrong, vec1);
-            }).toThrow(new InvalidArgumentException(wrong + ' is not a Vector2d!'));
+            }).toThrow(AssertionError);
         });
 
         test('substract() with wrong second param', () => {
             expect(() => {
                 Vector2d.add(vec1, wrong);
-            }).toThrow(new InvalidArgumentException(wrong + ' is not a Vector2d!'));
+            }).toThrow(AssertionError);
         });
 
         test('multiply() with wrong first param', () => {
             expect(() => {
                 Vector2d.multiply(wrong, vec1);
-            }).toThrow(new InvalidArgumentException(wrong + ' is not a Vector2d!'));
+            }).toThrow(AssertionError);
         });
 
         test('multiply() with wrong second param', () => {
             expect(() => {
                 Vector2d.multiply(vec1, wrong);
-            }).toThrow(new InvalidArgumentException(wrong + ' is not a number!'));
+            }).toThrow(AssertionError);
         });
 
         test('divide() with wrong first param', () => {
             expect(() => {
                 Vector2d.divide(wrong, vec1);
-            }).toThrow(new InvalidArgumentException(wrong + ' is not a Vector2d!'));
+            }).toThrow(AssertionError);
         });
 
         test('divide() with wrong second param', () => {
             expect(() => {
                 Vector2d.divide(vec1, wrong);
-            }).toThrow(new InvalidArgumentException(wrong + ' is not a number!'));
+            }).toThrow(AssertionError);
         });
     });
 });

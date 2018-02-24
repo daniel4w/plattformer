@@ -9,15 +9,11 @@ let canvas = document.getElementById('screen'),
     width = canvas.width = window.innerWidth,
     height = canvas.height = window.innerHeight;
 
-let vec1 = new Vector2d(245, 110);
-
-let p = new Particle("par", vec1, 22);
+let p = new Particle("par", 245, 110, 55);
 p.setFillColor('green');
-p.setBorderColor('red');
-p.setBorderWidth(15);
-p.setVelocity(new Vector2d(0.1, 0.1));
 let pool = new Pool();
 pool.addToPool(p);
+console.log(pool);
 function update()
 {
     ctx.clearRect(0, 0, width, height);

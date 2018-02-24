@@ -1,6 +1,7 @@
 import ArrayNullException from '../exceptions/ArrayNullException';
 import Renderable from '../renderable/Renderable';
-import InvalidArgumentException from '../exceptions/InvalidArgumentException';
+
+const assert = require('assert');
 
 export default class Pool
 {
@@ -20,9 +21,7 @@ export default class Pool
      */
     addToPool(renderable)
     {
-        if(!(renderable instanceof Renderable)) {
-            throw new InvalidArgumentException(renderable + " is not an instance of Renderable!");
-        }
+        assert(renderable instanceof Renderable);
         if(this.pool.has(renderable.getName())) {
             return;
         }
@@ -35,22 +34,23 @@ export default class Pool
      * @returns {void}
      */
     update(context, renderable) {
-        if (typeof (renderable.velocity) != 'undefined') {
-            renderable.position.addTo(renderable.velocity);
-        }
+        /*if (typeof (renderable.getVelocity()) != 'undefined') {
+            renderable.getPosition().addTo(renderable.getVelocity());
+        }*/
 
-        if (renderable.fillColor != 'undefined') {
-            context.fillStyle = renderable.fillColor;
+        if (renderable.getFillColor() != 'undefined') {
+            context.fillStyle = renderable.getFillColor();
             context.fill();
         }
 
-        if (renderable.borderColor != 'undefined') {
-            context.strokeStyle = renderable.borderColor;
+        if (renderable.getBorderColor() != 'undefined') {
+            context.strokeStyle = renderable.getBorderColor();
         }
 
-        if (renderable.borderWidth != 'undefined') {
-            context.lineWidth = renderable.borderWidth;
+        if (renderable.getBorderWidth() != 'undefined') {
+            context.lineWidth = renderable.getBorderWidth();
         }
+
     }
 
     /**
@@ -59,9 +59,7 @@ export default class Pool
      * @param {object} context 
      */
     drawPool(context) {
-        if (typeof (context) !== 'object') {
-            throw new InvalidArgumentException(context + " is not an object!");
-        }
+        assert(typeof (context) == 'object');
 
         if (this.pool.size <= 0) {
             throw new ArrayNullException("No items in the pool!");
@@ -69,17 +67,16 @@ export default class Pool
 
         this.pool.forEach((renderable, name) => {
             this.update(context, renderable);
-
             context.beginPath();
             context.arc(
-                renderable.position.getX(),
-                renderable.position.getY(),
+                renderable.getX(),
+                renderable.getY(),
                 renderable.radius,
                 0,
                 2 * Math.PI
             );
 
-            context.stroke();
+            context.fill();
         });
     }
 }

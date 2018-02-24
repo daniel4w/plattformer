@@ -20,12 +20,9 @@ export default class Vector2d
      */
     constructor(x, y)
     {
-        if (typeof (x) !== 'number') {
-            throw new InvalidArgumentException(x + " is not a number!");
-        }
-        if (typeof (y) !== 'number') {
-            throw new InvalidArgumentException(y + " is not a number!");
-        }
+        assert(typeof(x) === 'number');
+        assert(typeof(y) === 'number');
+
         this.x = x;
         this.y = y;
     }
@@ -34,14 +31,11 @@ export default class Vector2d
      * Set the x position of the Vector2d.
      *
      * @param {number} value
-     * @throws {InvalidArgumentException}
      * @returns {void}
      */
     setX(value)
     {
-        if (typeof (value) !== 'number') {
-            throw new InvalidArgumentException(value + " is not a number!");
-        }
+        assert(typeof(value) === 'number');
         this.x = value;
     }
 
@@ -59,14 +53,11 @@ export default class Vector2d
      * Set the y position of the Vector2d.
      *
      * @param {number} value
-     * @throws {InvalidArgumentException}
      * @returns {void}
      */
     setY(value)
     {
-        if(typeof(value) !== 'number') {
-            throw new InvalidArgumentException(value + " is not a number!");
-        }
+        assert(typeof(value) === 'number');
         this.y = value;
     }
 
@@ -95,14 +86,12 @@ export default class Vector2d
      * Set the length of a vector.
      *
      * @param {number} length
-     * @throws {InvalidArgumentException}
      * @returns {void}
      */
     setLength(length)
     {
-        if (typeof (length) !== 'number') {
-            throw new InvalidArgumentException(length + " is not a number!");
-        }
+        assert(typeof(length) === 'number');
+
         let angle = this.getAngle();
         this.setX(Math.cos(angle) * length);
         this.setY(Math.sin(angle) * length);
@@ -122,14 +111,11 @@ export default class Vector2d
      * Set the angle of a vector.
      *
      * @param {number} angle
-     * @throws {InvalidArgumentException}
      * @returns {void}
      */
     setAngle(angle)
     {
-        if (typeof (angle) !== 'number') {
-            throw new InvalidArgumentException(angle + " is not a number!");
-        }
+        assert(typeof(angle) === 'number');
         let length = this.getLength();
         this.setX(Math.cos(angle) * length);
         this.setY(Math.sin(angle) * length);
@@ -139,14 +125,11 @@ export default class Vector2d
      * Add a vector to this vector.
      *
      * @param {Vector2d} vector
-     * @throws {InvalidArgumentException}
      * @returns {void}
      */
     addTo(vector)
     {
-        if (!(vector instanceof Vector2d)) {
-            throw new InvalidArgumentException(vector + " is not a Vector2d!");
-        }
+        assert(vector instanceof Vector2d);
         this.x += vector.getX();
         this.y += vector.getY();
     }
@@ -155,14 +138,11 @@ export default class Vector2d
      * Substract a vector from this vector.
      *
      * @param {Vector2d} vector
-     * @throws {InvalidArgumentException}
      * @returns {void}
      */
     subtractFrom(vector)
     {
-        if (!(vector instanceof Vector2d)) {
-            throw new InvalidArgumentException(vector + " is not a Vector2d!");
-        }
+        assert(vector instanceof Vector2d);
         this.x -= vector.getX();
         this.y -= vector.getY();
     }
@@ -171,14 +151,11 @@ export default class Vector2d
      * Multiply a vector with this value.
      *
      * @param {number} value
-     * @throws {InvalidArgumentException}
      * @returns {void}
      */
     multiplyBy(value)
     {
-        if (typeof (value) !== 'number') {
-            throw new InvalidArgumentException(value + " is not a number!");
-        }
+        assert(typeof(value) === 'number');
         this.x *= value;
         this.y *= value;
     }
@@ -187,14 +164,11 @@ export default class Vector2d
      * Divide this vector by a value.
      *
      * @param {number} value
-     * @throws {InvalidArgumentException}
      * @returns {void}
      */
     divideBy(value)
     {
-        if (typeof (value) !== 'number') {
-            throw new InvalidArgumentException(value + " is not a number!");
-        }
+        assert(typeof(value) === 'number');
         this.x /= value;
         this.y /= value;
     }
@@ -204,17 +178,13 @@ export default class Vector2d
      *
      * @param {Vector2d} vector1
      * @param {Vector2d} vector2
-     * @throws {InvalidArgumentException}
      * @returns {Vector2d}
      */
     static add(vector1, vector2)
     {
-        if (!(vector1 instanceof Vector2d)) {
-            throw new InvalidArgumentException(vector1 + " is not a Vector2d!");
-        }
-        if (!(vector2 instanceof Vector2d)) {
-            throw new InvalidArgumentException(vector2 + " is not a Vector2d!");
-        }
+        assert(vector1 instanceof Vector2d);
+        assert(vector2 instanceof Vector2d);
+
         let x = vector1.getX() + vector2.getX(),
             y = vector1.getY() + vector2.getY();
 
@@ -226,17 +196,13 @@ export default class Vector2d
      *
      * @param {Vector2d} vector1
      * @param {Vector2d} vector2
-     * @throws {InvalidArgumentException}
      * @returns {Vector2d}
      */
     static substract(vector1, vector2)
     {
-        if (!(vector1 instanceof Vector2d)) {
-            throw new InvalidArgumentException(vector1 + " is not a Vector2d!");
-        }
-        if (!(vector1 instanceof Vector2d)) {
-            throw new InvalidArgumentException(vector2 + " is not a Vector2d!");
-        }
+        assert(vector1 instanceof Vector2d);
+        assert(vector2 instanceof Vector2d);
+
         let x = vector1.getX() - vector2.getX(),
             y = vector1.getY() - vector2.getY();
 
@@ -248,17 +214,13 @@ export default class Vector2d
      *
      * @param {Vector2d} vector
      * @param {number} value
-     * @throws {InvalidArgumentException}
      * @returns {Vector2d}
      */
     static multiply(vector, value)
     {
-        if (!(vector instanceof Vector2d)) {
-            throw new InvalidArgumentException(vector + " is not a Vector2d!");
-        }
-        if (typeof (value) !== 'number') {
-            throw new InvalidArgumentException(value + " is not a number!");
-        }
+        assert(vector instanceof Vector2d);
+        assert(typeof(value) === 'number');
+
         let x = vector.getX() * value,
             y = vector.getY() * value;
 
@@ -270,17 +232,13 @@ export default class Vector2d
      *
      * @param {Vector2d} vector
      * @param {number} value
-     * @throws {InvalidArgumentException}
      * @returns {Vector2d}
      */
     static divide(vector, value)
     {
-        if (!(vector instanceof Vector2d)) {
-            throw new InvalidArgumentException(vector + " is not a Vector2d!");
-        }
-        if (typeof (value) !== 'number') {
-            throw new InvalidArgumentException(value + " is not a number!");
-        }
+        assert(vector instanceof Vector2d);
+        assert(typeof(value) === 'number');
+
         let x = vector.getX() / value,
             y = vector.getY() / value;
 
